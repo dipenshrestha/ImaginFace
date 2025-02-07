@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+  {% load static %}
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ImagineFace: Text to Human face generation</title>
+ 
+   <!-- Bootstrap CSS -->
+      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
+  <!--link to font awesome-->
+    <link rel="stylesheet" type="text/css" href="{% static 'font-awesome/css/font-awesome.min.css' %}">
+
+  <!--link to external css-->
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+
+  <!--link to favicon-->
+    <link rel="apple-touch-icon" sizes="180x180" href="{% static 'favicon_io/apple-touch-icon.png' %}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{% static 'favicon_io/favicon-32x32.png' %}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{% static 'favicon_io/favicon-16x16.png' %}">
+    <link rel="manifest" href="{% static 'favicon_io/site.webmanifest' %}">
+
+  <style type="text/css">
+    input[type="text"], input[type="email"]{
+           background-color: #0D0D0D;
+        }
+    textarea {
+           background-color: #0D0D0D;
+        }
+  </style>
+</head>
+<body>
+  <!-- Navigation Bar -->
+  <nav class="navbar sticky-top navbar-expand-lg" style="background-color: rgba(0, 0, 0, 0.4);">
+      <a class="navbar-brand" href="{%url 'home'%}">
+      <img src="{% static 'images\logo-nnnn.png' %}" height="60" class="d-inline-block align-top" style="padding-left: 40px;">
+      </a>
+      <div class="collapse navbar-collapse" id="navbarNav">
+
+          <ul class="navbar-nav ml-auto">
+              <li class="nav-item" style="padding-right: 20px;">
+                  <a class="nav-link" href="{%url 'home'%}" style="color: whitesmoke;">HOME <span class="sr-only"></span></a>
+              </li>
+              <li class="nav-item" style="padding-right: 20px;">
+                  <a class="nav-link" href="{%url 'help'%}" style="color: whitesmoke;">HELP</a>
+              </li>
+              <li class="nav-item active" style="padding-right: 20px;">
+                  <a class="nav-link" href="{%url 'contactus'%}" style="color: #4CAF50; font-weight: bold;">CONTACT</a>
+              </li>
+              <li class="nav-item" style="padding-right: 5px;">
+                    <a class="nav-link" href="https://www.facebook.com" style="color: whitesmoke;"><i class="fa fa-facebook"></i></a>
+                </li>
+                <li class="nav-item" style="padding-right: 5px;">
+                    <a class="nav-link" href="https://www.twitter.com" style="color: whitesmoke;"><i class="fa fa-twitter"></i></a>
+                </li>
+                <li class="nav-item" style="padding-right: 5px;">
+                    <a class="nav-link" href="https://www.linkedin.com" style="color: whitesmoke;"><i class="fa fa-linkedin"></i></a>
+                </li>
+                <li class="nav-item" style="padding-right: 5px;">
+                    <a class="nav-link" href="https://www.instagram.com" style="color: whitesmoke;"><i class="fa fa-instagram"></i></a>
+                </li>
+          </ul>
+      </div>
+  </nav>
+  <main>
+  <section class="contact py-5" id="contact">
+    <div class="container">
+      <div class="row">
+          <div class="col-md-12">
+              <h4>Get in touch</h4>
+            <hr style="background-color:#d3d3d3;">
+          </div>
+        <div class="col-md-6">
+            <div class="address">
+                
+            <h5>Address:</h5>
+            <ul class="list-unstyled">
+                <li> Imaginface</li>
+                <li> PO Box 37380</li>
+                <li> Bhaktapur, NM 87176-7380</li>
+            </ul>
+            <p>Please don't send anything to this address.</p>
+            </div>
+            <div class="email">
+            <h5>Email:</h5>
+            <ul class="list-unstyled">
+                <li> info@imaginface.email.com</li>
+                <li> info@imaginface.email.com</li>
+            </ul>
+            </div>
+            <div class="phone">
+                <h5>Phone:</h5>
+                <ul class="list-unstyled">
+                <li> +91- 8800XXXXXX34</li>
+                <li> +91- 8800XXXXXX34</li>
+            </ul>
+            </div>
+            <hr style="background-color:#d3d3d3;">
+            <div class="social">
+              <ul class="list-inline list-unstyled">
+                  <li class="list-inline-item">
+                      <a href="#" style="color:whitesmoke;"><i class="fa fa-facebook-square fa-2x"></i></a>
+                  </li>
+                  <li class="list-inline-item">
+                      <a href="#" style="color:whitesmoke;"><i class="fa fa-google-plus-square fa-2x"></i></a>
+                  </li>
+                  <li class="list-inline-item">
+                      <a href="#" style="color:whitesmoke;"><i class="fa fa-youtube-play fa-2x"></i></a>
+                  </li>
+              </ul>
+          </div>
+        </div>
+        <div class="col-md-6">
+            <div class="card" style="background-color: rgba(200, 200, 200, 0.3);">
+              <div class="card-body">
+                <form>
+                        <div class="form-row">
+                          <div class="form-group col-md-6">
+                            <input id="Full Name" name="Full Name" placeholder="Full Name" class="form-control" type="text" style="background-color: rgba(200, 200, 200, 0.4);">
+                          </div>
+                          <div class="form-group col-md-6">
+                            <input type="email" class="form-control" id="inputEmail4" placeholder="Email" style="background-color: rgba(200, 200, 200, 0.4);">
+                          </div>
+                  </div>
+                  <div class="form-row">
+                    <div class="form-group col-md-6">
+                      <input id="Mobile No." name="Mobile No." placeholder="Mobile No." class="form-control" required="required" type="text" style="background-color: rgba(200, 200, 200, 0.4);">
+                    </div>
+                    <div class="form-group col-md-6">
+                      <select id="inputState" class="form-control" style="background-color: rgba(200, 200, 200, 0.4);">
+                        <option selected>Choose ...</option>
+                        <option> Complaint</option>
+                        <option> Feedback</option>
+                      </select>
+                    </div>
+                    <div class="form-group col-md-12">
+                      <textarea id="comment" name="comment" cols="40" rows="5" placeholder="Your Message"class="form-control" style="background-color: rgba(200, 200, 200, 0.4);"></textarea>
+                    </div>
+                  </div>
+                              
+                  <div class="form-group col-md-14">
+                    <button type="button" class="btn btn-danger" style="width:100%;">Submit</button>
+                  </div>
+                </form>
+              </div>
+            </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  </main>
+<!-- Bootstrap JS and dependencies -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+</body>
+<footer style="margin-top: -45px;">
+  <p><i class="fa fa-copyright"></i> 2024 copyright : ImaginFace</p>  
+</footer>
+</html>

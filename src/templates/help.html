@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+  {% load static %}
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ImagineFace: Text to Human face generation</title>
+ 
+   <!-- Bootstrap CSS -->
+      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+      <link href="https://getbootstrap.com/docs/5.3/assets/css/docs.css" rel="stylesheet">
+
+
+  <!--link to font awesome-->
+    <link rel="stylesheet" type="text/css" href="{% static 'font-awesome/css/font-awesome.min.css' %}">
+
+  <!--link to external css-->
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+    <link rel="stylesheet" href="{% static 'css/help.css' %}">
+
+  <!--link to favicon-->
+    <link rel="apple-touch-icon" sizes="180x180" href="{% static 'favicon_io/apple-touch-icon.png' %}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{% static 'favicon_io/favicon-32x32.png' %}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{% static 'favicon_io/favicon-16x16.png' %}">
+    <link rel="manifest" href="{% static 'favicon_io/site.webmanifest' %}">
+</head>
+<body>
+  <!-- Navigation Bar -->
+  <nav class="navbar sticky-top navbar-expand-lg" style="background-color: rgba(0, 0, 0, 0.4);">
+      <a class="navbar-brand" href="{%url 'home'%}">
+      <img src="{% static 'images\logo-nnnn.png' %}" height="60" class="d-inline-block align-top" style="padding-left: 40px;">
+      </a>
+      <div class="collapse navbar-collapse" id="navbarNav">
+
+          <ul class="navbar-nav ml-auto">
+              <li class="nav-item" style="padding-right: 20px;">
+                  <a class="nav-link" href="{%url 'home'%}" style="color: whitesmoke;">HOME <span class="sr-only"></span></a>
+              </li>
+              <li class="nav-item active" style="padding-right: 20px;">
+                  <a class="nav-link" href="{%url 'help'%}" style="color: #4CAF50; font-weight: bold;">HELP</a>
+              </li>
+              <li class="nav-item" style="padding-right: 20px;">
+                  <a class="nav-link" href="{%url 'contactus'%}" style="color: whitesmoke;">CONTACT</a>
+              </li>
+              <li class="nav-item" style="padding-right: 5px;">
+                    <a class="nav-link" href="https://www.facebook.com" style="color: whitesmoke;"><i class="fa fa-facebook"></i></a>
+                </li>
+                <li class="nav-item" style="padding-right: 5px;">
+                    <a class="nav-link" href="https://www.twitter.com" style="color: whitesmoke;"><i class="fa fa-twitter"></i></a>
+                </li>
+                <li class="nav-item" style="padding-right: 5px;">
+                    <a class="nav-link" href="https://www.linkedin.com" style="color: whitesmoke;"><i class="fa fa-linkedin"></i></a>
+                </li>
+                <li class="nav-item" style="padding-right: 5px;">
+                    <a class="nav-link" href="https://www.instagram.com" style="color: whitesmoke;"><i class="fa fa-instagram"></i></a>
+                </li>
+          </ul>
+      </div>
+  </nav>
+  <main>
+    <div class="container-main">
+      <div class="container2">
+        <div class="top-title"> 
+          <center><span class="title">How to use ImaginFace?</span></center>
+        </div>
+        <div class="steps">
+          <div class="step">
+            <span class="step-title">Step 1 : Write a Prompt</span>
+            <p class="info">Use your imagination to craft an original line of text. Provide as much detail as possible for the best result. We use CelebA dataset that comprises images of celebrities, each annotated with 43 binary attributes, such as "Bald," "Bangs," "Eyeglasses," "Smiling," and "Sad," among others. These attributes describe facial characteristics and features present in the images.</p>
+          </div>
+          <div class="step">
+            <span class="step-title">Step 2 : Generate Image</span>
+            <p class="info">Once you have written the description, you are good to go. Just click the Generate button, and the image will be generated.</p>
+          </div>
+      </div>
+
+      <div class="first-title"> 
+        <center><span class="title">Attributes</span></center>
+      </div>
+
+      <div class="grid text-center">
+        <div class="g-col-6 g-col-md-4">
+          <img src="{% static 'images\5OClockShadow.jpg' %}" height="140" style="border-radius:10px;">
+          <h5>5 o'Clock Shadow</h5>
+        </div>
+
+        <div class="g-col-6 g-col-md-4">
+          <img src="{% static 'images\ArchedEyebrows.jpg' %}" height="140" style="border-radius:10px;">
+          <h5>Arched Eyebrows</h5>
+        </div>
+
+        <div class="g-col-6 g-col-md-4">
+          <img src="{% static 'images\attractive.jpg' %}" height="140" style="border-radius:10px;">
+            <h5>Attractive</h5>
+        </div>
+
+        <div class="g-col-6 g-col-md-4">
+          <img src="{% static 'images\bagsundereyes.jpg' %}" height="140" style="border-radius:10px;">
+            <h5>Bags Under Eyes</h5>
+        </div>
+
+        <div class="g-col-6 g-col-md-4">
+          <img src="{% static 'images\bald.jpg' %}" height="140" style="border-radius:10px;">
+          <h5>Bald</h5>
+        </div>
+
+        <div class="g-col-6 g-col-md-4">
+          <img src="{% static 'images\bangs.jpg' %}" height="140" style="border-radius:10px;">
+          <h5>Bangs</h5>
+        </div>
+
+        <div class="g-col-6 g-col-md-4">
+          <img src="{% static 'images\biglips.jpg' %}" height="140" style="border-radius:10px;">
+          <h5>Big Lips</h5>
+        </div>
+
+        <div class="g-col-6 g-col-md-4">
+          <img src="{% static 'images\bignose.jpg' %}" height="140" style="border-radius:10px;">
+          <h5>Big Nose</h5>
+        </div>
+
+        <div class="g-col-6 g-col-md-4">
+          <img src="{% static 'images\blackhair.jpg' %}" height="140" style="border-radius:10px;">
+          <h5>Black Hair</h5>
+        </div>
+
+        <div class="g-col-6 g-col-md-4">
+          <img src="{% static 'images\blondehair.jpg' %}" height="140" style="border-radius:10px;">
+          <h5>Blond Hair</h5>
+        </div>
+
+        <div class="g-col-6 g-col-md-4">
+          <img src="{% static 'images\blurry.jpg' %}" height="140" style="border-radius:10px;">
+          <h5>Blurry</h5>
+        </div>
+
+        <div class="g-col-6 g-col-md-4">
+          <img src="{% static 'images\brown.jpg' %}" height="140" style="border-radius:10px;">
+          <h5>Brown Hair</h5>
+        </div>
+
+        <div class="g-col-6 g-col-md-4">
+          <img src="{% static 'images\BushyEyebrows.jpg' %}" height="140" style="border-radius:10px;">
+          <h5>Bushy Eyebrows</h5>
+        </div>
+
+        <div class="g-col-6 g-col-md-4">
+          <img src="{% static 'images\chubby.jpg' %}" height="140" style="border-radius:10px;">
+          <h5>Chubby</h5>
+        </div>
+
+        <div class="g-col-6 g-col-md-4">
+          <img src="{% static 'images\doublechin.jpg' %}" height="140" style="border-radius:10px;">
+          <h5>Double Chin</h5>
+        </div>
+
+        <div class="g-col-6 g-col-md-4">
+          <img src="{% static 'images\eyeglasses.jpg' %}" height="140" style="border-radius:10px;">
+          <h5>Eyeglasses</h5>
+        </div>
+
+        <div class="g-col-6 g-col-md-4">
+          <img src="{% static 'images\goate.jpg' %}" height="140" style="border-radius:10px;">
+          <h5>Goatee</h5>
+        </div>
+
+        <div class="g-col-6 g-col-md-4">
+          <img src="{% static 'images\grayhair.jpg' %}" height="140" style="border-radius:10px;">
+          <h5>Gray Hair</h5>
+        </div>
+
+        <div class="g-col-6 g-col-md-4">
+          <img src="{% static 'images\heavymakeup.jpg' %}" height="140" style="border-radius:10px;">
+          <h5>Heavy Makeup</h5>
+        </div>
+
+        <div class="g-col-6 g-col-md-4">
+          <img src="{% static 'images\highcheekbone.jpg' %}" height="140" style="border-radius:10px;">
+          <h5>High Cheekbones</h5>
+        </div>
+
+        <div class="g-col-6 g-col-md-4">
+          <img src="{% static 'images\male.jpg' %}" height="140" style="border-radius:10px;">
+          <h5>Male</h5>
+        </div>
+
+        <div class="g-col-6 g-col-md-4">
+          <img src="{% static 'images\mouthslightlyopened.jpg' %}" height="140" style="border-radius:10px;">
+          <h5>Mouth Slightly Open</h5>
+        </div>
+
+        <div class="g-col-6 g-col-md-4">
+          <img src="{% static 'images\mustace.jpg' %}" height="140" style="border-radius:10px;">
+          <h5>Mustache</h5>
+        </div>
+
+        <div class="g-col-6 g-col-md-4">
+          <img src="{% static 'images\narroweye.jpg' %}" height="140" style="border-radius:10px;">
+          <h5>Narrow Eyes</h5>
+        </div>
+
+        <div class="g-col-6 g-col-md-4">
+          <img src="{% static 'images\nobeard.jpg' %}" height="140" style="border-radius:10px;">
+          <h5>No Beard</h5>
+        </div>
+
+        <div class="g-col-6 g-col-md-4">
+          <img src="{% static 'images\ovalface.jpg' %}" height="140" style="border-radius:10px;">
+          <h5>Oval Face</h5>
+        </div>
+
+        <div class="g-col-6 g-col-md-4">
+          <img src="{% static 'images\paleskin.jpg' %}" height="140" style="border-radius:10px;">
+          <h5>Pale Skin</h5>
+        </div>
+
+        <div class="g-col-6 g-col-md-4">
+          <img src="{% static 'images\pointynose.jpg' %}" height="140" style="border-radius:10px;">
+          <h5>Pointy Nose</h5>
+        </div>
+
+        <div class="g-col-6 g-col-md-4">
+          <img src="{% static 'images\recedinghairline.jpg' %}" height="140" style="border-radius:10px;">
+          <h5>Receding Hairline</h5>
+        </div>
+
+        <div class="g-col-6 g-col-md-4">
+          <img src="{% static 'images\rosycheek.jpg' %}" height="140" style="border-radius:10px;">
+          <h5>Rosy Cheeks</h5>
+        </div>
+
+        <div class="g-col-6 g-col-md-4">
+          <img src="{% static 'images\sideburn.jpg' %}" height="140" style="border-radius:10px;">
+          <h5>Sideburns</h5>
+        </div>
+
+        <div class="g-col-6 g-col-md-4">
+          <img src="{% static 'images\smiling.jpg' %}" height="140" style="border-radius:10px;">
+          <h5>Smiling</h5>
+        </div>
+
+        <div class="g-col-6 g-col-md-4">
+          <img src="{% static 'images\straighthair.jpg' %}" height="140" style="border-radius:10px;">
+          <h5>Straight Hair</h5>
+        </div>
+
+        <div class="g-col-6 g-col-md-4">
+          <img src="{% static 'images\wavyhair.jpg' %}" height="140" style="border-radius:10px;">
+          <h5>Wavy Hair</h5>
+        </div>
+
+        <div class="g-col-6 g-col-md-4">
+          <img src="{% static 'images\earrings.jpg' %}" height="140" style="border-radius:10px;">
+          <h5>Wearing Earrings</h5>
+        </div>
+
+        <div class="g-col-6 g-col-md-4">
+          <img src="{% static 'images\wearinghat.jpg' %}" height="140" style="border-radius:10px;">
+          <h5>Wearing Hat</h5>
+        </div>
+
+        <div class="g-col-6 g-col-md-4">
+          <img src="{% static 'images\wearinglipstick.jpg' %}" height="140" style="border-radius:10px;">
+          <h5>Wearing Lipstick</h5>
+        </div>
+
+        <div class="g-col-6 g-col-md-4">
+          <img src="{% static 'images\wearingnecklace.jpg' %}" height="140" style="border-radius:10px;">
+          <h5>Wearing Necklace</h5>
+        </div>
+
+        <div class="g-col-6 g-col-md-4">
+          <img src="{% static 'images\WearingNecktie.jpg' %}" height="140" style="border-radius:10px;">
+          <h5>Wearing Necktie</h5>
+        </div>
+
+        <div class="g-col-6 g-col-md-4">
+          <img src="{% static 'images\young.jpg' %}" height="140" style="border-radius:10px;">
+          <h5>Young</h5>
+        </div>
+
+        <div class="g-col-6 g-col-md-4">
+          <img src="{% static 'images\happy.jpg' %}" height="140" style="border-radius:10px;">
+          <h5>Happy</h5>
+        </div>
+
+        <div class="g-col-6 g-col-md-4">
+          <img src="{% static 'images\neutral.jpg' %}" height="140" style="border-radius:10px;">
+          <h5>Neutral</h5>
+        </div>
+
+        <div class="g-col-6 g-col-md-4">
+          <img src="{% static 'images\sad.jpg' %}" height="140" style="border-radius:10px;">
+          <h5>Sad</h5>
+        </div>
+
+      </div>
+
+    </div>
+  </main>
+<!-- Bootstrap JS and dependencies -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+</body>
+<footer>
+  <p><i class="fa fa-copyright"></i> 2024 copyright : ImaginFace</p>  
+</footer>
+</html>

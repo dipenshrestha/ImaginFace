@@ -1,0 +1,134 @@
+body{
+	/*background: #010101;*/
+	background: linear-gradient(to right, #5EAED2 , #6132A2);
+	color: whitesmoke;
+	min-height: 100vh; /* Set the minimum height of the body to 100% of the viewport height */
+    margin: 0; /* Remove default margin */
+    display: flex;
+    flex-direction: column;
+/*    overflow: hidden;*/
+}
+
+main{
+      flex: 1; /* Allow the main content to grow and take up available space */
+      padding: 20px;
+      justify-content: center;
+      align-content: center;
+}
+
+/*Navigation part*/
+.navbar{
+	padding-right: 50px; 
+	font-size: 17px;
+	font-family: sans-serif;
+}
+
+/*container part*/
+.container1{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
+
+.left-side {
+	padding-left: 60px;
+	padding-top: 30px;
+    width: 55%;
+}
+
+.right-side {
+      width: 45%;
+}
+
+.left-box textarea {
+	border: 1px solid whitesmoke;
+	padding: 10px;
+}
+
+.left-box select {
+    background-color: lightseagreen;
+    padding: 10px;
+    border: 1px solid lightseagreen;
+    border-radius: 8px; 
+    color:whitesmoke;
+    margin-left: 5px;
+    font-weight: bold;
+}
+
+.left-box-last{
+	padding-top:5px;
+	display: flex;
+	flex-direction: row;
+}
+
+.right-box{
+	padding-left: 150px;
+}
+
+.first{
+	/*color: #808080;*/
+	color: whitesmoke;
+	text-transform: uppercase;
+	font-size: 18px;
+	font-weight: bold;
+}
+
+.second{
+	font-size: 40px;
+	padding-top: 15px;
+	color: #F2CC00;
+	text-transform: uppercase;
+	font-family: poppins;
+}
+
+.third{
+	/*color:#808080;*/
+	color: whitesmoke;
+	padding-top: 15px;
+}
+
+.example-text{
+	color: #C0C0C0;
+	font-style: italic;
+}
+
+ .textarea {
+      width: 75%;
+      height: 80px; /* Set the desired height */
+      padding: 10px;
+      border-radius: 8px;
+      box-sizing: border-box;
+      resize: none; /* Disable textarea resizing */
+    }
+
+.generate-button {
+    padding: 10px;
+    width: 25%;
+    height: 80px;
+    background-color: #4CAF50;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    margin-left: 5px;
+    font-weight: bold;
+    cursor: pointer;
+ }
+
+ .generate-button:hover {
+      background-color: #45a049; /* Darker green color on hover */
+    }
+
+/*Contact us css*/
+/*.list-inline-item a{
+	color: whitesmoke;
+}
+*/
+/*footer part*/
+footer{
+	color: whitesmoke; 
+	background-color: rgba(0, 0, 0, 0.1);
+	text-align: center;
+	font-size: 10px;
+	font-style: italic;
+	padding: 5px; /* Add padding for better visibility */
+}

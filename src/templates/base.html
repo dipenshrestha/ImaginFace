@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+	{% load static %}
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>ImagineFace: Text to Human face generation</title>
+ 
+	 <!-- Bootstrap CSS -->
+    	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
+	<!--link to font awesome-->
+		<link rel="stylesheet" type="text/css" href="{% static 'font-awesome/css/font-awesome.min.css' %}">
+
+	<!--link to external css-->
+		<link rel="stylesheet" href="{% static 'css/base.css' %}">
+
+	<!--link to favicon-->
+		<link rel="apple-touch-icon" sizes="180x180" href="{% static 'favicon_io/apple-touch-icon.png' %}">
+		<link rel="icon" type="image/png" sizes="32x32" href="{% static 'favicon_io/favicon-32x32.png' %}">
+		<link rel="icon" type="image/png" sizes="16x16" href="{% static 'favicon_io/favicon-16x16.png' %}">
+		<link rel="manifest" href="{% static 'favicon_io/site.webmanifest' %}">
+</head>
+<body>
+	<!-- Navigation Bar -->
+	<nav class="navbar sticky-top navbar-expand-lg" style="background-color: rgba(0, 0, 0, 1); ">
+	    <a class="navbar-brand" href="{%url 'home'%}">
+			<img src="{% static 'images\logo-nnnn.png' %}" height="60" class="d-inline-block align-top" style="padding-left: 40px;">
+	    </a>
+	    <div class="collapse navbar-collapse" id="navbarNav">
+
+	        <ul class="navbar-nav ml-auto">
+	            <li class="nav-item active" style="padding-right: 20px;">
+	                <a class="nav-link" href="{%url 'home'%}" style="color: #4CAF50; font-weight: bold;">HOME <span class="sr-only"></span></a>
+	            </li>
+	            <li class="nav-item" style="padding-right: 20px;">
+	                <a class="nav-link" href="{%url 'help'%}" style="color: whitesmoke;">HELP</a>
+	            </li>
+	            <li class="nav-item" style="padding-right: 20px;">
+	                <a class="nav-link" href="{%url 'contactus'%}" style="color: whitesmoke;">CONTACT</a>
+	            </li>
+	            <li class="nav-item" style="padding-right: 20px;">
+	                <a class="nav-link" href="{%url 'home'%}" style="color: whitesmoke;">REFRESH</a>
+	            </li>
+	            <li class="nav-item" style="padding-right: 5px;">
+                    <a class="nav-link" href="https://www.facebook.com" style="color: whitesmoke;"><i class="fa fa-facebook"></i></a>
+                </li>
+                <li class="nav-item" style="padding-right: 5px;">
+                    <a class="nav-link" href="https://www.twitter.com" style="color: whitesmoke;"><i class="fa fa-twitter"></i></a>
+                </li>
+                <li class="nav-item" style="padding-right: 5px;">
+                    <a class="nav-link" href="https://www.linkedin.com" style="color: whitesmoke;"><i class="fa fa-linkedin"></i></a>
+                </li>
+                <li class="nav-item" style="padding-right: 5px;">
+                    <a class="nav-link" href="https://www.instagram.com" style="color: whitesmoke;"><i class="fa fa-instagram"></i></a>
+                </li>
+	        </ul>
+	    </div>
+	</nav>
+	<main>
+		<div class="container1">
+		    <div class="left-side">
+		      	<div class="left-box">
+		      		<p class="first">ImaginFace : Text Driven Human Face Generation</p>
+		      	</div>
+
+				<div class="left-box">
+			    	<p class="second">
+			    		AI and GANs converge to craft lifelike faces,<br> a symphony of tech & art
+			    	</p>
+			  	</div>
+
+		      	<div class="left-box">
+			      		<p class="third">
+				    		Easily crate an image from scratch with our AI image generator by entering descriptive text. 
+				    		<span class="example-text">
+				    			For example: This person is female. She has arched eyebrows. She is attractive. She has big lips. She is wearing heavy makeup. She has narrow eyes. She has no beard.
+				    		</span>
+				    	</p>
+		      	</div>
+
+		      	<div class="left-box">
+		      			<form action="process" class="left-box-last" method="post">
+		      				{% csrf_token %}
+		      				{{ form.as_p }}
+			      			<textarea class="textarea" placeholder="Write the description here..." name="textinput" required></textarea>
+			      			<select id="ganModel" name="ganModel">
+					            <option value="dcgannew">DCGAN MODEL(NEW)</option>
+					            <option value="dcganold">DCGAN MODEL(OLD)</option>
+					        </select>
+	    					<button class="generate-button" name="generate" type="submit">GENERATE</button>
+    					</form>
+		      	</div>
+		    </div>
+
+		    <div class="right-side">
+		      	<div class="right-box">
+		      		{% if generated_image %}
+		      			<div class="main-gen">
+		      				<div class="gen-img">
+		      					<!-- <img src="{{ image.url }}" width="320" /> -->
+		      					<!-- <img src="{{ img_url }}" alt="Generated Image"> -->
+		      					<img src="data:generated_image/jpeg;base64,{{ generated_image }}" alt="Generated image" height="320" style="border-radius: 20px; margin-top: 50px; margin-left: 40px;">
+		      				</div>
+		      				<div class="gen-caption" style="margin-top: 20px; padding-right:160px; padding-left: 50px;">
+		      					<p style="margin-top: 20px; font-size: 15px; color: whitesmoke;"><b>Caption : </b>{{ caption }}</p>
+		      				</div>
+		      			</div>
+				        
+				    {% else %}
+		      		<img src="{% static 'images\ai.png' %}" height="530">
+		      		{% endif %}
+		      	</div>
+		    </div>
+	  	</div>
+
+		<!-- {% block content %}
+		{% endblock content %} -->
+	</main>
+<!-- Bootstrap JS and dependencies -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+</body>
+<footer>
+	<p><i class="fa fa-copyright"></i> 2024 copyright : ImaginFace</p>	
+</footer>
+</html>
