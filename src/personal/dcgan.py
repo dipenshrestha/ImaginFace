@@ -113,10 +113,10 @@ model2 = Generator(100, 128, 3, 768, 256)
 
 
 #for old model where 200k image and old caption was used
-model1.load_state_dict(torch.load('generator_355epoch.pth', map_location='cpu'))
+model1.load_state_dict(torch.load('./src/generator_355epoch.pth', map_location='cpu'))
 
 #for new model where 10k image and new caption was used
-model2.load_state_dict(torch.load('10000_250_epoch_generator.pth', map_location='cpu'))
+model2.load_state_dict(torch.load('./src/10000_250_epoch_generator.pth', map_location='cpu'))
 
 #for old model where 200k image and old caption was used
 model1.eval()
