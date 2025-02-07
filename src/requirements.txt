@@ -17,6 +17,8 @@ fonttools==4.51.0
 fsspec==2024.5.0
 gitdb==4.0.11
 GitPython==3.1.43
+gunicorn==23.0.0
+h11==0.14.0
 huggingface-hub==0.23.1
 idna==3.7
 intel-openmp==2021.4.0
@@ -77,6 +79,7 @@ transformers==4.41.1
 typing_extensions==4.12.0
 tzdata==2024.1
 urllib3==2.2.1
+uvicorn==0.34.0
 virtualenv==20.25.0
 watchdog==4.0.1
 whitenoise==6.9.0
