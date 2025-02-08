@@ -6,7 +6,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-kka-+t8)8h*9q-nzd%w3$1_14++$gt7yl-gr#hor_*!2$^xqzt'
 
 DEBUG = True
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['imaginface-p9ur.onrender.com']
 
 INSTALLED_APPS = [
     'personal',  # Your custom app
