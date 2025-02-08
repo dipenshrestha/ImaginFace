@@ -1,3 +1,4 @@
+# ImaginFace
 In the realm of text-to-image synthesis, generating realistic human faces from textual descriptions using Generative Adversarial Networks (GANs) poses significant challenges such as complex designs,
 reliance on additional networks for semanticalignment, and high computational costs. Our approach employed a Deep Con-volutional GAN (DC-GAN) framework, utilizing the CelebA dataset to enhance training, 
 and incorporated a CNN-RNN model to align textual descriptions with facial features.
